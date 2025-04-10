@@ -5,8 +5,11 @@ using UnityEngine.Events;
 public class LapManager : MonoBehaviour
 {
     public List<Checkpoint> checkpoints;
-    public int totalLaps = 3;
+    public int totalLaps = 2;
     public UIManager ui;
+    public GameObject finishMessageUI;
+    public string mainMenuSceneName = "Menu";
+
 
     private List<PlayerRank> playerRanks = new List<PlayerRank>();
     private PlayerRank mainPlayerRank;
@@ -14,7 +17,6 @@ public class LapManager : MonoBehaviour
 
     void Start()
     {
-        // Get players in the scene
         foreach(CarIdentity carIdentity in GameObject.FindObjectsOfType<CarIdentity>())
         {
             playerRanks.Add(new PlayerRank(carIdentity));
@@ -23,6 +25,15 @@ public class LapManager : MonoBehaviour
         ui.UpdateLapText("Lap "+ playerRanks[0].lapNumber + " / " + totalLaps);
         mainPlayerRank = playerRanks.Find(player => player.identity.gameObject.tag == "Player");
     }
+
+    void Update()
+    {
+        if (finishMessageUI.activeSelf && Input.GetKeyDown(KeyCode.Return))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(mainMenuSceneName);
+        }
+    }
+
 
     private void ListenCheckpoints(bool subscribe)
     {
@@ -65,17 +76,33 @@ public class LapManager : MonoBehaviour
                         Debug.Log(player.identity.driverName + " won !");
                         ui.UpdateLapText(player.identity.driverName + " won");
                     }
-                    else if (player == mainPlayerRank) // display player rank if not winner
+                    else if (player == mainPlayerRank) // display player
                     {
                         ui.UpdateLapText("\nYou finished in " + mainPlayerRank.rank + " place");
                     }
 
-                    if (player == mainPlayerRank) onPlayerFinished.Invoke();
+                    if (player.identity.driverName == "Player")
+                    {
+                        finishMessageUI.SetActive(true);
+                    }
+
+
+                    if (player == mainPlayerRank)
+                    {
+                        onPlayerFinished.Invoke();
+                    }
                 }
-                else {
+                else
+                {
                     Debug.Log(player.identity.driverName + ": lap " + player.lapNumber);
-                    if (car.gameObject.tag == "Player") ui.UpdateLapText("Lap " + player.lapNumber + " / " + totalLaps);
+
+                    if (player.identity.driverName == "Player")
+                    {
+                        Debug.Log("Mise à jour UI : Lap " + player.lapNumber + " / " + totalLaps);
+                        ui.UpdateLapText("Lap " + player.lapNumber + " / " + totalLaps);
+                    }
                 }
+
             }
             // next checkpoint reached
             else if (checkpointNumber == player.lastCheckpoint + 1)
