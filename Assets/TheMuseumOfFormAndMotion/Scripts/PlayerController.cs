@@ -2,16 +2,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool controlsEnabled = true;
+
     private float verticalRotation = 0f;
+    public float mouseSensitivity = 2f;
     public float speed = 5f;
-    public float jumpForce = 10f;
-    private bool isGrounded;
+    public float jumpForce = 5f;
+    private bool isJumping = false;
 
     private Transform player;
     private Transform playerCamera;
     private Rigidbody rigidBody;
 
-
+    
     void Start()
     {
         player = this.transform;
@@ -23,31 +26,35 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        /* Keyboard */
+        if (!controlsEnabled) return;
 
-        float inputX = Input.GetAxis("Horizontal"); // Left, Right
-        float inputY = Input.GetAxis("Vertical"); // Up, Down
+        /* Movements */
+        float inputX = Input.GetAxis("Horizontal");
+        float inputY = Input.GetAxis("Vertical");
 
-        Vector3 move = this.transform.right * inputX + this.transform.forward * inputY;
-        this.transform.position += move * this.speed * Time.deltaTime; // Front and side movement
+        Vector3 move = transform.right * inputX + transform.forward * inputY;
+        transform.position += move * speed * Time.deltaTime;
 
         /* Jump */
-
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1f);
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (!isJumping && Input.GetKey(KeyCode.Space))
         {
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isJumping = true;
         }
 
-        /* Mouse */
-
-        float mouseX = Input.GetAxis("Mouse X"); // Horizontal
-        float mouseY = Input.GetAxis("Mouse Y"); // Vertical
+        /* Vision */
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
 
         verticalRotation -= mouseY;
         verticalRotation = Mathf.Clamp(verticalRotation, -75f, 75f);
-        playerCamera.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f); // Vertical rotation (only camera)
+        playerCamera.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
+        transform.Rotate(Vector3.up * mouseX * mouseSensitivity);
+    }
 
-        this.transform.Rotate(Vector3.up * mouseX); // Horizontal rotation (all)
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.contacts[0].normal.y > 0.5f) isJumping = false;
     }
 }

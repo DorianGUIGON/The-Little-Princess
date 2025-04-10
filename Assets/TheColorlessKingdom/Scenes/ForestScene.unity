@@ -1539,6 +1539,7 @@ MonoBehaviour:
   choiceButtons: []
   Precedent: {fileID: 0}
   overlay: {fileID: 0}
+  dialogueBox: {fileID: 0}
 --- !u!4 &1627996402
 Transform:
   m_ObjectHideFlags: 0
@@ -1585,6 +1586,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58d085bb482c3944f86c94030ca9dd8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentNode:
+    nodeId: 
+    sceneName: 
+    dialogueText: 
+    choices: []
+    nextNodeId: 
   overlay: {fileID: 1267483065}
   ChoicePanel: {fileID: 1908607484}
   Start: {fileID: 0}
@@ -1611,6 +1618,7 @@ MonoBehaviour:
   - {fileID: 470973818}
   Precedent: {fileID: 1836003508}
   overlay: {fileID: 1267483065}
+  dialogueBox: {fileID: 0}
 --- !u!4 &1645706492
 Transform:
   m_ObjectHideFlags: 0

@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public Transform player;
-    public Vector3 marginFromPlayer;
+    public Transform car; 
+    public Vector3 offset = new Vector3(0, 2, -5); 
+    public float smoothSpeed = 5f;
 
-    // Start is called before the first frame update
-    void Start()
+    void LateUpdate()
     {
-        
-    }
+        if (car == null) return;
 
-    void Update()
-    {
-        transform.position = player.transform.position + marginFromPlayer;
-        transform.rotation = Quaternion.Euler(45, 0, 0);
+        Vector3 desiredPosition = car.position + car.transform.TransformDirection(offset);
+        transform.position = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, car.rotation, smoothSpeed * Time.deltaTime);
     }
 }

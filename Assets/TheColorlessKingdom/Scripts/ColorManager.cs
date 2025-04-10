@@ -75,6 +75,13 @@ public class ColorManager : MonoBehaviour
             ToggleBlue(showB);
             Debug.Log("Blue toggled: " + showB);
         }
+
+        // Revenir au menu principal
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+            Debug.Log("Retour au menu principal");
+        }
     }
 
 
