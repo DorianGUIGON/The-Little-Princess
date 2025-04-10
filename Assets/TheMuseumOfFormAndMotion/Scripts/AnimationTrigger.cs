@@ -15,68 +15,53 @@ public class AnimationTrigger : MonoBehaviour
     private Animator animator;
     private PlayerController playerController;
     private bool isInCinematicView = false;
+    private bool wasNear = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         playerController = player.GetComponent<PlayerController>();
 
-        if (playerCamera != null) playerCamera.enabled = true;
-        if (cinematicCamera != null) cinematicCamera.enabled = false;
+        playerCamera.enabled = true;
+        cinematicCamera.enabled = false;
 
-        if (cursorText != null) cursorText.enabled = true;
-        if (animationText != null) animationText.enabled = false;
+        cursorText.enabled = true;
+        animationText.enabled = false;
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, player.position);
-        bool isNear = distance < distanceThreshold;
+        bool isNear = Vector3.Distance(transform.position, player.position) < distanceThreshold;
 
         animator.SetBool("IsNear", isNear);
 
-        // Affichage de l'instruction "Appuyez sur E pour activer/désactiver le mode cinématique"
-        if (animationText != null)
-        {
-            animationText.enabled = isNear;
-        }
+        if (!wasNear && isNear) animationText.enabled = true;
+        else if (wasNear && !isNear) animationText.enabled = false;
 
-        if (isNear && Input.GetKeyDown(KeyCode.E) && !isInCinematicView)
-        {
-            EnterCinematicView();
-        }
-        else if (isInCinematicView && Input.GetKeyDown(KeyCode.E))
-        {
-            ExitCinematicView();
-        }
+        if (isNear && Input.GetKeyDown(KeyCode.E) && !isInCinematicView) EnterCinematicView();
+        else if (isInCinematicView && Input.GetKeyDown(KeyCode.E)) ExitCinematicView();
+
+        wasNear = isNear;
     }
 
     void EnterCinematicView()
     {
-        if (playerCamera != null) playerCamera.enabled = false;
-        if (cinematicCamera != null) cinematicCamera.enabled = true;
+        playerController.controlsEnabled = false;
 
-        if (playerController != null) playerController.controlsEnabled = false;
-
-        if (cursorText != null) cursorText.enabled = false;
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        playerCamera.enabled = false;
+        cinematicCamera.enabled = true;
+        cursorText.enabled = false;
 
         isInCinematicView = true;
     }
 
     void ExitCinematicView()
     {
-        if (playerCamera != null) playerCamera.enabled = true;
-        if (cinematicCamera != null) cinematicCamera.enabled = false;
+        playerController.controlsEnabled = true;
 
-        if (playerController != null) playerController.controlsEnabled = true;
-
-        if (cursorText != null) cursorText.enabled = true;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        playerCamera.enabled = true;
+        cinematicCamera.enabled = false;
+        cursorText.enabled = true;
 
         isInCinematicView = false;
     }
