@@ -5,8 +5,9 @@ public class PlayerController : MonoBehaviour
     public bool controlsEnabled = true;
 
     private float verticalRotation = 0f;
+    public float mouseSensitivity = 2f;
     public float speed = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce = 5f;
     private bool isJumping = false;
 
     private Transform player;
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
         verticalRotation -= mouseY;
         verticalRotation = Mathf.Clamp(verticalRotation, -75f, 75f);
         playerCamera.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
+        transform.Rotate(Vector3.up * mouseX * mouseSensitivity);
     }
 
 
