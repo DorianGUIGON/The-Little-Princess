@@ -1,0 +1,158 @@
+{
+  "nodes": [
+    {
+      "nodeId": "start",
+      "sceneName": "StartScene",
+      "dialogueText": "Depuis son vaisseau, la princesse voit s'approcher une planète un peu particulière. Intriguée, elle décide de s'y poser.",
+      "choices": [
+        { "choiceText": "Atterrir", "nextNodeId": "start1" }
+      ],
+      "effects": [],
+      "nextNodeId": "start1"
+    },
+
+
+    {
+      "nodeId": "start1",
+      "sceneName": "ForestScene",
+      "dialogueText": "La princesse atteri dans une forêt étrange. C'est bizarre... Il n'y a pas de couleur ici, tout est gris ! Quelqu'un approche. On dirait bien un paysan du coin.",
+      "choices": [],
+      "nextNodeId": "start2"
+    },
+    {
+      "nodeId": "start2",
+      "sceneName": "ForestScene",
+      "dialogueText": "Le paysan :\nTiens ! Voilà quelqu'un qui n'a pas l'air d'être d'ici ! Vous êtes toute colorée !",
+      "choices": [],
+      "nextNodeId": "start3"
+    },
+    {
+      "nodeId": "start3",
+      "sceneName": "ForestScene",
+      "dialogueText": "Le paysan :\nVous ignorez ce qui se passe ici ? Voilà quelque temps que toutes les couleurs ont disparu ! Laissez-moi vous conduire auprès de notre roi. Il saura vous expliquer. Il ne va pas en revenir de vous voir !",
+      "choices": [
+        { "choiceText": "Suivre le paysan", "nextNodeId": "follow_peasant1" },
+        { "choiceText": "Refuser de le suivre", "nextNodeId": "refuse_peasant" }
+      ],
+      "nextNodeId": null
+    },
+
+
+    {
+      "nodeId": "follow_peasant1",
+      "sceneName": "CastleScene",
+      "dialogueText": "Sur le chemin vers le château, vous croisez soudain un homme un peu étrange. Il a l'air très agité.",
+      "choices": [],
+      "nextNodeId": "follow_peasant2"
+    },
+    {
+      "nodeId": "follow_peasant2",
+      "sceneName": "CastleScene",
+      "dialogueText": "L'homme étrange :\nAlors c'est vous la responsable ! Sorcière ! Vous avez volé toutes les couleurs du royaume ! Vous allez le payer !",
+      "choices": [
+        { "choiceText": "Lui expliqer", "nextNodeId": "explain1" },
+        { "choiceText": "S'enfuire", "nextNodeId": "flee1" }
+      ],
+      "nextNodeId": null
+    },
+
+    {
+      "nodeId": "refuse_peasant",
+      "sceneName": "ForestScene",
+      "dialogueText": "Le paysan :\nMais qu'est-ce que vous faites ? Vous ne pouvez pas rester ici ! Vous allez vous faire attaquer par les monstres qui rodent dans la forêt !",
+      "choices": [],
+      "nextNodeId": ""
+    },
+
+
+    {
+      "nodeId": "explain1",
+      "sceneName": "CastleScene",
+      "dialogueText": "L'homme étrange :\nAh bon. Ce n'est vraiment pas vous ? Je suis désolé ! Je ne vous dérange pas plus longtemps.",
+      "choices": [],
+      "nextNodeId": "explain2"
+    },
+    {
+      "nodeId": "explain2",
+      "sceneName": "CastleScene",
+      "dialogueText": "Le paysan :\nIl m'a fait peur celui ci. Ne perdons pas plus de temps ! Allons voir le roi !",
+      "choices": [],
+      "nextNodeId": "king1"
+    },
+
+    {
+      "nodeId": "flee1",
+      "sceneName": "CastleScene",
+      "dialogueText": "Malheureuseument, l'homme étrange est bien plus rapide que vous. Il vous rattrape en un rien de temps et vous attrape par le bras.",
+      "choices": [],
+      "nextNodeId": "flee2"
+    },
+    {
+      "nodeId": "flee2",
+      "sceneName": "CastleScene",
+      "dialogueText": "L'homme étrange :\nVous ne vous en tirerez pas comme ça ! Je m'en vais vous trainer devant le roi !",
+      "choices": [],
+      "nextNodeId": "king2"
+    },
+
+
+    {
+      "nodeId": "king1",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\nJe suis ravi de vous rencontrer ! Cela fait bien longtemps que personne n'a vu quelqu'un comme vous.",
+      "choices": [],
+      "nextNodeId": "king4"
+    },
+
+    {
+      "nodeId": "king2",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\nQue faite vous malheureux ?! Il ne faut pas être un génie pour voir que cette princesse est innocente ! Relachez-la immédiatement !",
+      "choices": [],
+      "nextNodeId": "king3"
+    },
+    {
+      "nodeId": "king3",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\nToutes mes excuses, princesse. Cela fait bien longtemps que personne n'a vu quelqu'un comme vous.",
+      "choices": [],
+      "nextNodeId": "king4"
+    },
+
+    {
+      "nodeId": "king4",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\nBref, puisque vous êtes ici, je vais vous expliquer la situation. Il y a quelques temps, notre royaume, pourtant si joyeux et coloré, a été frappé par une catastrophe.",
+      "choices": [],
+      "nextNodeId": "king5"
+    },
+    {
+      "nodeId": "king5",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\n",
+      "choices": [],
+      "nextNodeId": "king6"
+    },
+    {
+      "nodeId": "king6",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\n",
+      "choices": [],
+      "nextNodeId": "king7"
+    },
+    {
+      "nodeId": "king7",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\n",
+      "choices": [],
+      "nextNodeId": "king8"
+    },
+    {
+      "nodeId": "king8",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\n",
+      "choices": [],
+      "nextNodeId": ""
+    }
+  ]
+}
