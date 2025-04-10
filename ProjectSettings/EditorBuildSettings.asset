@@ -5,7 +5,26 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/MainMenu/Scene/Menu.unity
+    guid: a0ca60dc01936c44585400764c318189
+  - enabled: 1
+    path: Assets/TheMuseumOfFormAndMotion/Scenes/MuseumScene.unity
+    guid: 44348ddbd984cd1458779c2390f703d8
+  - enabled: 1
+    path: Assets/TheArenaOfSpeedAndPurpose/Scenes/MainMenu.unity
+    guid: 77151299ed4f1cf4388c395869a19bff
+  - enabled: 1
+    path: Assets/TheArenaOfSpeedAndPurpose/Scenes/GameScene.unity
+    guid: b33d3bc8397cc1e4fa64d2bda6d850fd
+  - enabled: 1
+    path: Assets/TheArenaOfSpeedAndPurpose/Scenes/MonacoScene.unity
+    guid: 8f1201959df07de4d8c20c4dc8dd7d46
+  - enabled: 1
+    path: Assets/TheColorlessKingdom/Scenes/ForestScene.unity
+    guid: 75e94044df41ca14b94ce70a1d4622a3
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
