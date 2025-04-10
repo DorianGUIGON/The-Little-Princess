@@ -1,0 +1,60 @@
+{
+    "nodes": [
+      {
+        "nodeId": "start",
+        "sceneName": "ForestScene",
+        "dialogueText": "Bienvenue dans la forêt. Que veux-tu faire ?",
+        "choices": [
+          { "choiceText": "Explorer la grotte", "nextNodeId": "cave" },
+          { "choiceText": "Retourner au village", "nextNodeId": "village" }
+        ],
+        "nextNodeId": null
+      },
+      {
+        "nodeId": "cave",
+        "sceneName": "CaveScene",
+        "dialogueText": "La grotte est sombre et effrayante.",
+        "choices": [],
+        "nextNodeId": "cave_end"
+        
+      },
+      {
+        "nodeId": "village",
+        "sceneName": "VillageScene",
+        "dialogueText": "Tu retournes au village. Tout est paisible.",
+        "choices": [],
+        "nextNodeId": "end"
+      },
+      {
+        "nodeId": "cave_end",
+        "sceneName": "CaveScene",
+        "dialogueText": "Tu as trouvé un trésor dans la grotte !",
+        "choices": [
+          { "choiceText": "Prendre le trésor", "nextNodeId": "treasure" },
+          { "choiceText": "Laisser le trésor", "nextNodeId": "leave_treasure" }
+        ],
+        "nextNodeId": null
+      },
+      {
+        "nodeId": "treasure",
+        "sceneName": "CaveScene",
+        "dialogueText": "Tu es maintenant riche !",
+        "choices": [],
+        "nextNodeId": "end"
+      },
+      {
+        "nodeId": "leave_treasure",
+        "sceneName": "CaveScene",
+        "dialogueText": "Tu as décidé de laisser le trésor.",
+        "choices": [],
+        "nextNodeId": "end"
+      },
+      {
+        "nodeId": "end",
+        "sceneName": "VillageScene",
+        "dialogueText": "Merci d'avoir joué !",
+        "choices": []
+      }
+    ]
+  }
+  
