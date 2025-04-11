@@ -26,5 +26,23 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TheColorlessKingdom/Scenes/ForestScene.unity
     guid: 75e94044df41ca14b94ce70a1d4622a3
+  - enabled: 1
+    path: Assets/TheColorlessKingdom/Scenes/StartScene.unity
+    guid: aa1c1ff52be1ddb4ebaf80c2161ed3fd
+  - enabled: 1
+    path: Assets/TheColorlessKingdom/Scenes/ThroneScene.unity
+    guid: b5c7834ee7bb35f4a870a4a165a9b1c7
+  - enabled: 1
+    path: Assets/TheColorlessKingdom/Scenes/VillageScene.unity
+    guid: 78d16bfb2fadcda44b3b1a1b77f5398d
+  - enabled: 1
+    path: Assets/TheColorlessKingdom/Scenes/CrossroadsScene.unity
+    guid: 42d5a97d2e1cd3640a21919b44e15a24
+  - enabled: 1
+    path: Assets/TheColorlessKingdom/Scenes/CastleScene.unity
+    guid: f85b7760963325149884474ca5a7a156
+  - enabled: 1
+    path: Assets/TheColorlessKingdom/Scenes/CaveScene.unity
+    guid: 72f45f4e380f3bf478905d8159a05a23
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
