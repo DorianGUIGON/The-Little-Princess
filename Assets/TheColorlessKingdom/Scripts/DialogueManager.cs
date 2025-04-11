@@ -116,7 +116,7 @@ public class DialogueManager : MonoBehaviour
                 choiceButtons[i].onClick.RemoveAllListeners();
                 choiceButtons[i].onClick.AddListener(() =>
                 {
-                    StoryManager.Instance.ChooseOption(choices[index].nextNodeId);
+                    StoryManager.Instance.ChangeCurrentNode(choices[index].nextNodeId);
                     choicePanel.SetActive(false);
                 });
             }

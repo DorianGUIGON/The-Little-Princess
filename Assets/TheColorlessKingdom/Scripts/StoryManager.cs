@@ -46,7 +46,7 @@ public class StoryManager : MonoBehaviour
         {
             storyNodes[node.nodeId] = node;
         }
-    }
+    }   
 
     public void StartStory()
     {
@@ -80,6 +80,16 @@ public class StoryManager : MonoBehaviour
 
         DialogueManager.Instance.StartDialogue(new string[] { currentNode.dialogueText });
 
+        GameState.AddState("passed_" + currentNode.nodeId);
+        if (currentNode.effects != null)
+        {
+            foreach (var effect in currentNode.effects)
+            {
+                Debug.Log("Effet : " + effect);
+                GameState.AddState(effect);
+            }
+        }
+
         Suivant.gameObject.SetActive(true);
         Precedent.gameObject.SetActive(true);
 
@@ -92,11 +102,22 @@ public class StoryManager : MonoBehaviour
         }
     }
 
-    public void ChooseOption(string nextNodeId)
+    public void ChangeCurrentNode(string nextNodeId)
     {
         if (storyNodes.ContainsKey(nextNodeId))
         {
-            currentNode = storyNodes[nextNodeId];
+            if (GameState.checkState("passed_" + nextNodeId) && currentNode.nextNodeAlt != null && storyNodes.ContainsKey(currentNode.nextNodeAlt))
+            {
+                Debug.Log("On a déjà passé ce noeud, on va au noeud alternatif : " + currentNode.nextNodeAlt);
+                currentNode = storyNodes[currentNode.nextNodeAlt];
+            }
+            else
+            {
+                Debug.Log("On va au noeud suivant : " + nextNodeId);
+                currentNode = storyNodes[nextNodeId];
+            }
+
+            Debug.Log("changement de scène");
             ChangeScene(currentNode.sceneName);
         }
     }
@@ -212,7 +233,9 @@ public class StoryNode
     public string sceneName;
     public string dialogueText;
     public List<Choice> choices;
+    public List<string> effects;
     public string nextNodeId;
+    public string nextNodeAlt;
 }
 
 [System.Serializable]
