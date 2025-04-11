@@ -1539,7 +1539,6 @@ MonoBehaviour:
   choiceButtons: []
   Precedent: {fileID: 0}
   overlay: {fileID: 0}
-  dialogueBox: {fileID: 0}
 --- !u!4 &1627996402
 Transform:
   m_ObjectHideFlags: 0
@@ -1618,7 +1617,6 @@ MonoBehaviour:
   - {fileID: 470973818}
   Precedent: {fileID: 1836003508}
   overlay: {fileID: 1267483065}
-  dialogueBox: {fileID: 0}
 --- !u!4 &1645706492
 Transform:
   m_ObjectHideFlags: 0
