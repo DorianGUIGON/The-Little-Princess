@@ -1503,6 +1503,7 @@ MonoBehaviour:
   backwardMoveSpeed: -25
   steerSpeed: 200
   slipperyMultiplier: 0.5
+  slipperySteerReduction: 0.5
 --- !u!1 &557244575
 GameObject:
   m_ObjectHideFlags: 0
@@ -3236,7 +3237,7 @@ MonoBehaviour:
   - {fileID: 1275022088}
   - {fileID: 571176433}
   - {fileID: 1478183179}
-  totalLaps: 2
+  totalLaps: 1
   ui: {fileID: 334767720}
   finishMessageUI: {fileID: 399456013}
   mainMenuSceneName: MainMenu
@@ -3711,6 +3712,7 @@ MonoBehaviour:
   backwardMoveSpeed: -25
   steerSpeed: 200
   slipperyMultiplier: 0.5
+  slipperySteerReduction: 0.5
 --- !u!114 &1397395301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4825,6 +4827,7 @@ MonoBehaviour:
   backwardMoveSpeed: -25
   steerSpeed: 200
   slipperyMultiplier: 0.5
+  slipperySteerReduction: 0.5
 --- !u!114 &1707610472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5491,6 +5494,7 @@ MonoBehaviour:
   backwardMoveSpeed: -25
   steerSpeed: 200
   slipperyMultiplier: 0.5
+  slipperySteerReduction: 0.5
 --- !u!114 &1832506861
 MonoBehaviour:
   m_ObjectHideFlags: 0
