@@ -29,11 +29,11 @@ public class LapManager : MonoBehaviour
     void Update()
     {
 
-        if (finishMessageUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        if (finishMessageUI.activeSelf && Input.GetKeyDown(KeyCode.Return))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(mainMenuSceneName);
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(mainMenuSceneName);
         }

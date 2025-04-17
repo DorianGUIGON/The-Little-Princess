@@ -1567,7 +1567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Appuyez sur Esc pour retourner au menu principal
+  m_text: Appuyez sur Enter pour retourner au menu principal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2953,7 +2953,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Press R to respawn
+  m_Text: Appuyer sur R pour respawn
 --- !u!222 &1106359419
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2996,7 +2996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -137.617, y: -15.911987}
+  m_AnchoredPosition: {x: -204.5, y: -769}
   m_SizeDelta: {x: 275.234, y: 31.825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1129921620
@@ -3032,7 +3032,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Press Esc to return to Menu
+  m_Text: Appuyer sur Entrer pour retourner au Menu
 --- !u!222 &1129921621
 CanvasRenderer:
   m_ObjectHideFlags: 0
