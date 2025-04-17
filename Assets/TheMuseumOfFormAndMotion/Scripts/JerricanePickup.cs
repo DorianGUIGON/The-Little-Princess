@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro; // Utilisé si vous préférez TextMeshPro pour le prompt. Sinon, vous pouvez utiliser UnityEngine.UI
+using TMPro;
 
 public class JerricanePickup : MonoBehaviour
 {
@@ -14,11 +14,9 @@ public class JerricanePickup : MonoBehaviour
 
     void Update()
     {
-        // Calculer la distance entre ce jerricane et la caméra
         float distance = Vector3.Distance(transform.position, cameraTransform.position);
         bool isNear = distance < pickupDistanceThreshold;
 
-        // Afficher ou masquer le prompt en fonction de la proximité
         if (pickupPromptText != null)
         {
             pickupPromptText.enabled = isNear;
@@ -28,13 +26,11 @@ public class JerricanePickup : MonoBehaviour
             }
         }
 
-        // Si la caméra est proche et que le joueur appuie sur P, récupérer le jerricane
         if (isNear && Input.GetKeyDown(KeyCode.P))
         {
             if (JerricaneCollector.instance != null)
                 JerricaneCollector.instance.AddJerricane();
 
-            // Détruire le jerricane pour qu'il ne soit collecté qu'une seule fois
             Destroy(gameObject);
         }
     }
