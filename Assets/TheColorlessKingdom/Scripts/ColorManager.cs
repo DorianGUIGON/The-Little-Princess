@@ -46,30 +46,30 @@ public class ColorManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        showR = GameState.checkState("toggleColorRed");
+        showG = GameState.checkState("toggleColorGreen");
+        showB = GameState.checkState("toggleColorBlue");
         InitializeObjectsColor();
     }
 
 
     void Update()
     {
-        // if a is pressed toggle red
-        if (Input.GetKeyDown(KeyCode.F))
+        if (GameState.checkState("toggleColorRed") != showR)
         {
             showR = !showR;
             ToggleRed(showR);
             Debug.Log("Red toggled: " + showR);
         }
 
-        // if z is pressed toggle green
-        if (Input.GetKeyDown(KeyCode.G))
+        if (GameState.checkState("toggleColorGreen") != showG)
         {
             showG = !showG;
             ToggleGreen(showG);
             Debug.Log("Green toggled: " + showG);
         }
 
-        // if e is pressed toggle blue
-        if (Input.GetKeyDown(KeyCode.H))
+        if (GameState.checkState("toggleColorBlue") != showB)
         {
             showB = !showB;
             ToggleBlue(showB);
@@ -79,6 +79,12 @@ public class ColorManager : MonoBehaviour
         // Revenir au menu principal
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            // stoper le script
+            Debug.Log("Escape pressed, stopping ColorManager script.");
+            Destroy(this);
+            Destroy(StoryManager.Instance);
+            Destroy(DialogueManager.Instance);
+
             SceneManager.LoadScene("Menu");
             Debug.Log("Retour au menu principal");
         }
