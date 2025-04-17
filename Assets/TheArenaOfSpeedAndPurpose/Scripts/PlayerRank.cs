@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class PlayerRank
@@ -8,6 +9,7 @@ public class PlayerRank
     public int lastCheckpoint = 0;
     public bool hasFinished = false;
     public int rank = -1;
+
 
     public PlayerRank(CarIdentity carIdentity)
     {

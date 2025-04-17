@@ -4,7 +4,7 @@ public class SceneLoader : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("MonacoScene");
+        SceneManager.LoadScene(4);
     }
     public void LoadMenu()
     {
@@ -14,5 +14,13 @@ public class SceneLoader : MonoBehaviour
     public void MenuPrincipal()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        }
     }
 }

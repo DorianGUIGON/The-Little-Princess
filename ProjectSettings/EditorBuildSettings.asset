@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TheArenaOfSpeedAndPurpose/Scenes/MainMenu.unity
     guid: 77151299ed4f1cf4388c395869a19bff
-  - enabled: 1
+  - enabled: 0
     path: Assets/TheArenaOfSpeedAndPurpose/Scenes/GameScene.unity
     guid: b33d3bc8397cc1e4fa64d2bda6d850fd
   - enabled: 1

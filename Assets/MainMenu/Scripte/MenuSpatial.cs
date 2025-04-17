@@ -72,7 +72,7 @@ public class MenuSpatial : MonoBehaviour
                 SceneManager.LoadScene(1);
                 break;
             case 1:
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(4);
                 break;
             case 2:
                 SceneManager.LoadScene("StartScene");

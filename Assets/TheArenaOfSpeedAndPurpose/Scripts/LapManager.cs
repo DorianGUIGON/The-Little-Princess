@@ -28,10 +28,16 @@ public class LapManager : MonoBehaviour
 
     void Update()
     {
-        if (finishMessageUI.activeSelf && Input.GetKeyDown(KeyCode.Return))
+
+        if (finishMessageUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(mainMenuSceneName);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(mainMenuSceneName);
+        }
+
     }
 
 
@@ -47,6 +53,7 @@ public class LapManager : MonoBehaviour
     public void CheckpointActivated(CarIdentity car, Checkpoint checkpoint)
     {
         PlayerRank player = playerRanks.Find((rank) => rank.identity == car);
+
         if (checkpoints.Contains(checkpoint) && player!=null)
         {
             // if player has already finished don't do anything
@@ -61,6 +68,15 @@ public class LapManager : MonoBehaviour
             { 
                 player.lapNumber += 1;
                 player.lastCheckpoint = 0;
+
+                if (player.identity.driverName == "Player")
+                {
+                    PlayerRespawn respawn = car.GetComponent<PlayerRespawn>();
+                    if (respawn != null)
+                    {
+                        respawn.UpdateLastCheckpoint(checkpoint);
+                    }
+                }
 
                 // if this was the final lap
                 if (player.lapNumber > totalLaps)
@@ -108,6 +124,18 @@ public class LapManager : MonoBehaviour
             else if (checkpointNumber == player.lastCheckpoint + 1)
             {
                 player.lastCheckpoint += 1;
+
+                if (player.identity.driverName == "Player")
+                {
+                    PlayerRespawn respawn = car.GetComponent<PlayerRespawn>();
+                    if (respawn != null)
+                    {
+                        respawn.UpdateLastCheckpoint(checkpoint);
+                    }
+
+                    Debug.Log("player a passé un checkpoint");
+                    Debug.Log(player.lastCheckpoint);
+                }
             }
         }
     }
