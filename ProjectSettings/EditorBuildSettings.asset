@@ -41,11 +41,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TheColorlessKingdom/Scenes/CastleScene.unity
     guid: f85b7760963325149884474ca5a7a156
-  - enabled: 1
+  - enabled: 0
     path: Assets/TheColorlessKingdom/Scenes/CaveScene.unity
     guid: 72f45f4e380f3bf478905d8159a05a23
   - enabled: 1
     path: Assets/TheArenaOfSpeedAndPurpose/Scenes/IntroCourse.unity
     guid: 7fd5e1097e88fd048a3d6bd971220ad1
+  - enabled: 1
+    path: "Assets/TheMuseumOfFormAndMotion/Scenes/IntroMus\xE9e.unity"
+    guid: 97af6446ce1ed9f428314d44545193b7
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

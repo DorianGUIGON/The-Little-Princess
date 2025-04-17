@@ -53,8 +53,6 @@ public class PlayerController : MonoBehaviour
         playerCamera.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX * mouseSensitivity);
 
-        /* Menu */
-        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene("Menu");
     }
 
 
