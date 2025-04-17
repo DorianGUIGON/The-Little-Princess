@@ -127,7 +127,7 @@ public class MenuSpatial : MonoBehaviour
         switch (indexActuel)
         {
             case 0:
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene("IntroMusée");
                 break;
             case 1:
                 SceneManager.LoadScene("IntroCourse");
