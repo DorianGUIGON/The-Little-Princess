@@ -44,5 +44,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TheColorlessKingdom/Scenes/CaveScene.unity
     guid: 72f45f4e380f3bf478905d8159a05a23
+  - enabled: 1
+    path: Assets/TheArenaOfSpeedAndPurpose/Scenes/IntroCourse.unity
+    guid: 7fd5e1097e88fd048a3d6bd971220ad1
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

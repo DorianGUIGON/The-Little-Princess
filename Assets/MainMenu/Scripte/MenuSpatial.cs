@@ -130,7 +130,7 @@ public class MenuSpatial : MonoBehaviour
                 SceneManager.LoadScene(1);
                 break;
             case 1:
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene("IntroCourse");
                 break;
             case 2:
                 SceneManager.LoadScene("StartScene");
@@ -150,11 +150,11 @@ public class MenuSpatial : MonoBehaviour
                 // Pour i > 0, la planète est accessible si la précédente (i - 1) a été visitée.
                 if (i == 0 || (i > 0 && planetVisited[i - 1]))
                 {
-                    rend.material.color = Color.white;
+                    rend.material.color = Color.blue;
                 }
                 else
                 {
-                    rend.material.color = Color.gray;
+                    rend.material.color = Color.red;
                 }
             }
         }
