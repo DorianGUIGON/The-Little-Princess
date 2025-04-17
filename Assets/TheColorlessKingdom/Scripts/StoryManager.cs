@@ -139,6 +139,12 @@ public class StoryManager : MonoBehaviour
         else
         {
             Debug.Log("Fin de l'histoire ou nœud introuvable !");
+            Destroy(this);
+            Destroy(ColorManager.Instance);
+            Destroy(DialogueManager.Instance);
+
+            SceneManager.LoadScene("Menu");
+            Debug.Log("Retour au menu principal");
         }
     }
 

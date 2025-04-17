@@ -24,4 +24,9 @@ public static class GameState
             return false;
         }
     }
+
+    public static bool isColored()
+    {
+        return checkState("toggleColorRed") || checkState("toggleColorGreen") || checkState("toggleColorBlue");
+    }
 }

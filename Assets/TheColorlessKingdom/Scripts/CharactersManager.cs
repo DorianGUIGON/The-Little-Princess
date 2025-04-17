@@ -25,7 +25,7 @@ public class CharactersManager : MonoBehaviour
     {
         foreach (var character in characters)
         {
-            bool isColored = ColorManager.Instance.AreColorsActive();
+            bool isColored = GameState.isColored();
             SpriteRenderer spriteRenderer = character.obj.GetComponent<SpriteRenderer>();
             if (isColored || character.greySprite == null)
             {

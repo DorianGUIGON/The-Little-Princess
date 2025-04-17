@@ -59,9 +59,9 @@
     {
       "nodeId": "refuse_peasant",
       "sceneName": "ForestScene",
-      "dialogueText": "Le paysan :\nMais qu'est-ce que vous faites ? Vous ne pouvez pas rester ici ! Vous allez vous faire attaquer par les monstres qui rodent dans la forêt !",
+      "dialogueText": "Le paysan :\nVous êtes sûre ? Ce n'est pas très prudent de rester seule, suivez moi !",
       "choices": [],
-      "nextNodeId": ""
+      "nextNodeId": "follow_peasant1"
     },
 
 
@@ -129,30 +129,227 @@
     {
       "nodeId": "king5",
       "sceneName": "ThroneScene",
-      "dialogueText": "Le roi :\n",
+      "dialogueText": "Le roi :\nToute les couleurs ont disparus, enlevant toute joie à notre royaume. Nous avons tout essayé pour les retrouver, mais rien n'y fait.",
       "choices": [],
       "nextNodeId": "king6"
     },
     {
       "nodeId": "king6",
       "sceneName": "ThroneScene",
-      "dialogueText": "Le roi :\n",
+      "dialogueText": "Le roi :\nJe pense que vous êtes notre dernière chance. Vous devez nous aider à retrouver les couleurs !",
       "choices": [],
       "nextNodeId": "king7"
     },
     {
       "nodeId": "king7",
       "sceneName": "ThroneScene",
-      "dialogueText": "Le roi :\n",
+      "dialogueText": "Le roi :\nAu village d'à côté, une rumeur court à propos d'un homme qui agit de manière étrange. Tu devrais aller enquêter.",
       "choices": [],
       "nextNodeId": "king8"
     },
     {
       "nodeId": "king8",
       "sceneName": "ThroneScene",
-      "dialogueText": "Le roi :\n",
+      "dialogueText": "Le roi :\nOn aurait également aperçu de curieuses pierres dans les alentours. Peut-être que cela a un rapport avec la disparition des couleurs...",
       "choices": [],
+      "nextNodeId": "crossroad1"
+    },
+
+    
+    {
+      "nodeId": "crossroad1",
+      "sceneName": "CrossroadsScene",
+      "dialogueText": "Où souhaitez-vous aller ?",
+      "choices": [
+        { "choiceText": "Au village", "nextNodeId": "village1" },
+        { "choiceText": "Au chateau", "nextNodeId": "king6" },
+        { "choiceText": "Dans la forêt", "nextNodeId": "nothing1" }
+      ],
       "nextNodeId": ""
+    },
+    {
+      "nodeId": "nothing1",
+      "sceneName": "CrossroadsScene",
+      "dialogueText": "Il n'y a rien à aller voir ici pour le moment. Ou souhaitez-vous aller ?",
+      "choices": [
+        { "choiceText": "Au village", "nextNodeId": "village1" },
+        { "choiceText": "Au chateau", "nextNodeId": "king6" },
+        { "choiceText": "Dans la forêt", "nextNodeId": "nothing1" }
+      ],
+      "nextNodeId": ""
+    },
+    {
+      "nodeId": "nothing2",
+      "sceneName": "CrossroadsScene",
+      "dialogueText": "Il n'y a plus rien à aller voir ici. Ou souhaitez-vous aller ?",
+      "choices": [
+        { "choiceText": "Au village", "nextNodeId": "nothing2" },
+        { "choiceText": "Au chateau", "nextNodeId": "king_end1" },
+        { "choiceText": "Dans la forêt", "nextNodeId": "forest_end1" }
+      ],
+      "nextNodeId": ""
+    },
+
+    {
+      "nodeId": "village1",
+      "sceneName": "VillageScene",
+      "dialogueText": "Le paysan :\nBienvenue dans notre village ! Vous tombez bien, nous venons de trouver cette étrange pierre dans la maison de l'homme que nous soupsonnions.",
+      "choices": [],
+      "nextNodeId": "village2"
+    },
+    {
+      "nodeId": "village2",
+      "sceneName": "VillageScene",
+      "dialogueText": "Lorsque vous touchez la pierre, elle se met à briller et à vibrer. Une puissante lumière en jaillit.",
+      "choices": [],
+      "nextNodeId": "village3"
+    },
+    {
+      "nodeId": "village3",
+      "sceneName": "VillageScene",
+      "dialogueText": "Le paysan :\n... qu'est ce que...\nVous avez vu ça ?! Vous avez réussi à faire réapparaître la couleur !",
+      "choices": [],
+      "effects": ["toggleColorRed"],
+      "nextNodeId": "village4"
+    },
+    {
+      "nodeId": "village4",
+      "sceneName": "VillageScene",
+      "dialogueText": "Le paysan :\nC'est merveilleux !! Allez vite annoncer la nouvelle au roi !",
+      "choices": [],
+      "nextNodeId": "on_the_way1"
+    },
+
+
+    {
+      "nodeId": "on_the_way1",
+      "sceneName": "CrossroadsScene",
+      "dialogueText": "Vous vous demandez s'il faudrait prendre votre temps pour aller au château ou si vous devriez vous dépêcher.",
+      "choices": [
+        { "choiceText": "Prendre son temps", "nextNodeId": "on_the_way2" },
+        { "choiceText": "Courir jusqu'au chateau", "nextNodeId": "on_the_way3" }
+      ],
+      "nextNodeId": ""
+    },
+    {
+      "nodeId": "on_the_way2",
+      "sceneName": "CrossroadsScene",
+      "dialogueText": "En marchant tranquillement, vous tombez sur une autre pierre semblable ! Vous la touchez et le même phénomène se produit.",
+      "choices": [],
+      "effects": ["toggleColorBlue"],
+      "nextNodeId": "crossroad2"
+    },
+    {
+      "nodeId": "on_the_way3",
+      "sceneName": "CrossroadsScene",
+      "dialogueText": "Dans votre précipitation, vous sentez quelque chose craquer sous votre pied. Vous venez d'écraser une pierre, et de priver le royaume d'une nouvelle couleur...... Tant pis !",
+      "choices": [],
+      "nextNodeId": "crossroad2"
+    },
+    
+    
+    {
+      "nodeId": "crossroad2",
+      "sceneName": "CrossroadsScene",
+      "dialogueText": "Où souhaitez-vous aller ?",
+      "choices": [
+        { "choiceText": "Au village", "nextNodeId": "nothing2" },
+        { "choiceText": "Au chateau", "nextNodeId": "king_end1" },
+        { "choiceText": "Dans la forêt", "nextNodeId": "forest_end1" }
+      ],
+      "nextNodeId": ""
+    },
+
+
+    {
+      "nodeId": "king_end1",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\nBravo !! Vous avez réussi à redonner de la couleur au royaume ! Merci infiniment !",
+      "choices": [],
+      "nextNodeId": "king_end2"
+    },
+    {
+      "nodeId": "king_end2",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\nJe vous offre ce bijou en remerciement. Il s'agit d'un talisman forgé récemment par nos meilleurs artisans.",
+      "choices": [],
+      "nextNodeId": "king_end3"
+    },
+    {
+      "nodeId": "king_end3",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Lorsque vous prenez le bijou, il se met à briller et à vibrer. Une puissante lumière en jaillit.",
+      "choices": [],
+      "nextNodeId": "king_end4"
+    },
+    {
+      "nodeId": "king_end4",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\nQui l'eu cru ?! Vous avez réussi à faire réapparaître une nouvelle couleur grâce au talisman !",
+      "choices": [],
+      "effects": ["toggleColorGreen"],
+      "nextNodeId": "king_end5"
+    },
+    {
+      "nodeId": "king_end5",
+      "sceneName": "ThroneScene",
+      "dialogueText": "Le roi :\nNous ne vous remercierons jamais assez ! Vous avez redonné de la joie à notre royaume ! Je vous serai éternellement reconnaissant !",
+      "choices": [],
+      "nextNodeId": "crossroad3"
+    },
+
+
+    {
+      "nodeId": "crossroad3",
+      "sceneName": "CrossroadsScene",
+      "dialogueText": "Où souhaitez-vous aller ?",
+      "choices": [
+        { "choiceText": "Au village", "nextNodeId": "nothing3" },
+        { "choiceText": "Au chateau", "nextNodeId": "king_end5" },
+        { "choiceText": "Dans la forêt", "nextNodeId": "forest_end3" }
+      ],
+      "nextNodeId": ""
+    },
+
+
+    {
+      "nodeId": "nothing3",
+      "sceneName": "CrossroadsScene",
+      "dialogueText": "Il n'y a plus rien à aller voir ici. Ou souhaitez-vous aller ?",
+      "choices": [
+        { "choiceText": "Au village", "nextNodeId": "nothing3" },
+        { "choiceText": "Au chateau", "nextNodeId": "king_end5" },
+        { "choiceText": "Dans la forêt", "nextNodeId": "forest_end3" }
+      ],
+      "nextNodeId": ""
+    },
+
+
+    {
+      "nodeId": "forest_end1",
+      "sceneName": "ForestScene",
+      "dialogueText": "Le paysan :\nVous vous en allez déjà ? Sans même dire au revoir au roi ?",
+      "choices": [
+        { "choiceText": "Non, pas encore !", "nextNodeId": "crossroad2" },
+        { "choiceText": "Partir", "nextNodeId": "forest_end2" }
+      ],
+      "nextNodeId": null
+    },
+    {
+      "nodeId": "forest_end2",
+      "sceneName": "ForestScene",
+      "dialogueText": "Le paysan :\n Bon, très bien, merci pour tout ! Nous avons retrouvé quelques couleurs, la vie est déjà plus !",
+      "choices": [],
+      "nextNodeId": null
+    },
+    {
+      "nodeId": "forest_end3",
+      "sceneName": "ForestScene",
+      "dialogueText": "Le paysan :\nVous vous en allez déjà ? C'était un plaisir de vous rencontrer ! Et merci pour votre aide !",
+      "choices": [],
+      "nextNodeId": null
     }
+
+
   ]
 }
