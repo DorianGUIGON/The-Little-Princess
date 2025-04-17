@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private Transform playerCamera;
     private Rigidbody rigidBody;
 
-    
+
     void Start()
     {
         player = this.transform;
@@ -50,6 +52,9 @@ public class PlayerController : MonoBehaviour
         verticalRotation = Mathf.Clamp(verticalRotation, -75f, 75f);
         playerCamera.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX * mouseSensitivity);
+
+        /* Menu */
+        if (Input.GetKeyDown(KeyCode.Escape)) SceneManager.LoadScene("Menu");
     }
 
 
